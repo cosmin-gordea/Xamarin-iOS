@@ -12,6 +12,7 @@ using ObjCRuntime;
 
 using PSPDFKit.iOS;
 using HagerCustomizations.DifferentCellIssue;
+using PSPDFCatalog.HagerCustomizations.ThumbnailModeSelectionIssue;
 
 namespace PSPDFCatalog
 {
@@ -43,6 +44,14 @@ namespace PSPDFCatalog
                     })
                 },
 
+                new Section ("Page selection from Thumbnail View Controller") {
+                    new StringElement ("Custom delegate", () => {
+
+                        var document = new PSPDFDocument (NSUrl.FromFilename (PdfHagerFile));
+                        var pdfViewer = new ThumbnailSelectionIssueViewController (document);
+                        NavigationController.PushViewController (pdfViewer, true);
+                    })
+                },
 
 				new Section ("Start here") {
 					new StringElement ("PSPDFViewController Playground", () => {

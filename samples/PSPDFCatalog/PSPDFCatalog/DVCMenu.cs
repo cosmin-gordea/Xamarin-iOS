@@ -11,7 +11,7 @@ using UIKit;
 using ObjCRuntime;
 
 using PSPDFKit.iOS;
-
+using HagerCustomizations.DifferentCellIssue;
 
 namespace PSPDFCatalog
 {
@@ -20,12 +20,30 @@ namespace PSPDFCatalog
 		public static readonly string HackerMonthlyFile = "Pdf/hackermonthly-issue.pdf";
 		public static readonly string ProtectedFile = "Pdf/protected.pdf";
 		public static readonly string PSPDFKitFile = "Pdf/PSPDFKit QuickStart Guide.pdf";
+        public static readonly string PdfHagerFile = "Pdf/hager.pdf";
 
 		UIColor barColor;
 
 		public DVCMenu () : base (UITableViewStyle.Grouped, null)
 		{
 			Root = new RootElement (PSPDFKitGlobal.SharedInstance.Version) {
+
+                new Section ("Different cell size") {
+                    new StringElement ("Hager document", () => {
+
+                        var document = new PSPDFDocument (NSUrl.FromFilename (PdfHagerFile));
+                        var pdfViewer = new DifferentCellSizeViewController (document);
+                        NavigationController.PushViewController (pdfViewer, true);
+                    }),
+                    new StringElement ("PsPdfKit document", () => {
+
+                        var document = new PSPDFDocument (NSUrl.FromFilename (PSPDFKitFile));
+                        var pdfViewer = new DifferentCellSizeViewController (document);
+                        NavigationController.PushViewController (pdfViewer, true);
+                    })
+                },
+
+
 				new Section ("Start here") {
 					new StringElement ("PSPDFViewController Playground", () => {
 						var pdfViewer = new PlayGroundViewController (NSUrl.FromFilename (PSPDFKitFile));

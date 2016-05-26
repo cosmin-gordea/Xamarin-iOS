@@ -127,6 +127,9 @@
     <Compile Include="Catalog\Subclassing\CustomPDFDocument.cs" />
     <Compile Include="Catalog\Customization\PSCustomTextSelectionMenuController.cs" />
     <Compile Include="Catalog\Customization\PSCStylusEnabledAnnotationToolbar.cs" />
+    <Compile Include="HagerCustomizations\DifferentCellIssue\DifferentCellSizeViewController.cs" />
+    <Compile Include="HagerCustomizations\DifferentCellIssue\HagerThumbnailGridViewCell.cs" />
+    <Compile Include="HagerCustomizations\ThumbnailModeSelectionIssue\ThumbnailModeIssueViewController.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
@@ -168,6 +171,8 @@
     <BundleResource Include="Resources\Pdf\PSPDFKit QuickStart Guide.pdf" />
     <BundleResource Include="Resources\Pdf\protected.pdf" />
     <BundleResource Include="Resources\Pdf\hackermonthly-issue.pdf" />
+    <BundleResource Include="HagerCustomizations\Images\bookmarkFlag.png" />
+    <BundleResource Include="HagerCustomizations\Images\bookmarkFlag%402x.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\PSPDFKit.iOS\PSPDFKit.iOS.csproj">
